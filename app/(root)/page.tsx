@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div>
       Home
-      <UserButton signOutUrl='/' /> {/* Redirect to home after sign out */}
+      <UserButton afterSignOutUrl="/" /> {/* Redirect to home after sign out */}
     </div>
   )
 }

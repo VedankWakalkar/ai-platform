@@ -90,3 +90,30 @@ body {
     @apply bg-background text-foreground;
   }
 }
+.auth {
+  @apply flex items-center justify-center min-h-screen w-full bg-purple-100;
+}
+/* Sidebar Styles */
+.sidebar {
+  @apply hidden h-screen w-72 bg-white p-5 shadow-md shadow-purple-200/50 lg:flex;
+}
+
+.sidebar-logo {
+  @apply flex items-center gap-2 py-2;
+}
+
+.sidebar-nav {
+  @apply h-full flex flex-col justify-between gap-4;
+}
+
+.sidebar-nav_elements {
+  @apply flex w-full flex-col items-start gap-2;
+}
+
+.sidebar-nav_element {
+  @apply flex items-center justify-center w-full p-4 font-semibold whitespace-nowrap rounded-full bg-cover transition-all hover:bg-purple-100 hover:shadow-inner;
+}
+
+.sidebar-link {
+  @apply flex items-center gap-4 font-semibold w-full p-4;
+}

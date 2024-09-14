@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'; // Ensure this import is correct
-import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetDescription }from "@/components/ui/sheet" // Assuming Radix UI
+import { Sheet, SheetTrigger, SheetContent }from "@/components/ui/sheet" // Assuming Radix UI
 import { navLinks } from '@/constants';
 import { usePathname } from 'next/navigation';
 import { Button } from '../ui/button';

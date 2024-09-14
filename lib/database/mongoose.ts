@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import mongoose , { Mongoose } from "mongoose";
 
 const MONGODB_URL= process.env.MONGODB_URL;
@@ -15,7 +16,7 @@ if(!cached){
     }
 }
  
-export const coonectToDatabase = async()=>{
+export const connectToDatabase = async()=>{
     if(cached.conn) return cached.conn;
     if(!MONGODB_URL) throw new Error("MongoDb URL is Missing");
     

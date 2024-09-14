@@ -2,10 +2,11 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { SignedIn, UserButton } from '@clerk/nextjs'; // Ensure this import is correct
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'; // Ensure this import is correct
 import { Sheet, SheetTrigger, SheetContent, SheetHeader, SheetTitle, SheetDescription }from "@/components/ui/sheet" // Assuming Radix UI
 import { navLinks } from '@/constants';
 import { usePathname } from 'next/navigation';
+import { Button } from '../ui/button';
 
 const MobileNav = () => {
     const pathname=usePathname();
@@ -43,21 +44,19 @@ const MobileNav = () => {
               width={152}
               height={23}
               />
-              <ul className="sidebar-nav_elements">
-              {navLinks.slice(0, 6).map((link) => {
+              <ul className="header-nav_elements">
+              {navLinks.map((link) => {
                 const isActive = link.route === pathname
 
                 return (
-                  <li key={link.route} className={`sidebar-nav_element group ${
-                    isActive ? 'bg-purple-gradient text-white' : 'text-gray-700'
-                  }`}>
-                    <Link className="sidebar-link" href={link.route}>
+                  <li key={link.route} className={`${
+                    isActive && 'gradient-text'} p-18 whitespace-nowrap text-dark-700`}>
+                    <Link className='sidebar-link cursor-pointer' href={link.route}>
                       <Image 
                         src={link.icon}
                         alt="logo"
                         width={24}
                         height={24}
-                        className={`${isActive && 'brightness-200'}`}
                       />
                       {link.label}
                     </Link>
@@ -69,6 +68,11 @@ const MobileNav = () => {
             </SheetContent>
           </Sheet>
         </SignedIn>
+        <SignedOut>
+              <Button asChild className='button bg-purple-gradient bg-cover'>
+                <Link href="/sign-in">Login</Link>
+              </Button>
+        </SignedOut>
       </nav>
     </header>
   );

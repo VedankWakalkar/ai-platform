@@ -1,23 +1,21 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Inter } from "next/font/google";
+import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
 import { ClerkProvider } from "@clerk/nextjs";
-// import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+const inter = Inter({ subsets: ["latin"] });
+const IBMPlex = IBM_Plex_Sans(
+  {
+    subsets: ["latin"],
+    weight: ["100", "200", "300", "400", "500", "600", "700"],
+    variable: "--font-ibm-plex-sans",
+  });
 
 export const metadata: Metadata = {
-  title: "Image Modifier",
-  description: "Ai-saas-platform",
+  title: "Imaginify",
+  description: "AI-powered Image Generator",
 };
 
 export default function RootLayout({
@@ -27,20 +25,16 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider appearance={{
-      variables:{
-        colorPrimary:'#624cf5'
+      variables: {
+        colorPrimary: "#624cf5",
       }
     }}>
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {/* <BackgroundBeamsWithCollision> */}
-        {children}
-        {/* </BackgroundBeamsWithCollision> */}
-        
-      </body>
-    </html>
+      <html lang="en">
+        <body className={cn("font-IBMPlex antialiased", IBMPlex.variable)}>
+          {children}
+        </body>
+      </html>
     </ClerkProvider>
+
   );
 }

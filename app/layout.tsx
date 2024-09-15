@@ -5,6 +5,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ClerkProvider } from "@clerk/nextjs";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const inter = Inter({ subsets: ["latin"] });
 const IBMPlex = IBM_Plex_Sans(
   {
